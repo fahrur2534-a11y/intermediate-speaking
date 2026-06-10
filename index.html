@@ -1,128 +1,380 @@
+```html
 
 <html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>About My Family - Writing Exercise</title>
+<title>Intermediate Speaking Task - Healthy Lifestyle</title>
 
 <style>
-body{
-    font-family: Arial, sans-serif;
-    max-width: 900px;
-    margin: auto;
-    padding: 20px;
-    background:#f4f6f9;
-}
+    body {
+        font-family: Arial, sans-serif;
+        background-color: #f4f6f8;
+        margin: 0;
+        padding: 30px;
+        line-height: 1.6;
+    }
 
-.container{
-    background:white;
-    padding:25px;
-    border-radius:10px;
-    box-shadow:0 0 10px rgba(0,0,0,.1);
-}
+    .container {
+        max-width: 1000px;
+        margin: auto;
+        background: white;
+        padding: 35px;
+        border-radius: 10px;
+        box-shadow: 0 0 12px rgba(0,0,0,0.1);
+    }
 
-h1,h2{
-    color:#2c3e50;
-}
+    h1 {
+        text-align: center;
+        color: #2c3e50;
+    }
 
-textarea{
-    width:100%;
-    min-height:120px;
-    padding:10px;
-    margin-top:10px;
-}
+    h2 {
+        color: #34495e;
+        margin-top: 30px;
+    }
 
-input{
-    padding:8px;
-    margin:5px;
-}
+    .box {
+        background-color: #eef5ff;
+        padding: 15px;
+        border-radius: 8px;
+        margin: 20px 0;
+    }
 
-button{
-    background:#3498db;
-    color:white;
-    border:none;
-    padding:12px 20px;
-    border-radius:5px;
-    cursor:pointer;
-}
+    textarea {
+        width: 100%;
+        min-height: 250px;
+        padding: 12px;
+        font-size: 15px;
+        box-sizing: border-box;
+        resize: vertical;
+    }
 
-button:hover{
-    background:#2980b9;
-}
+    button {
+        margin-top: 15px;
+        padding: 12px 24px;
+        background-color: #3498db;
+        color: white;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        font-size: 16px;
+    }
 
-.correct{
-    color:green;
-    font-weight:bold;
-}
+    button:hover {
+        background-color: #2980b9;
+    }
 
-.wrong{
-    color:red;
-    font-weight:bold;
-}
+    .timer {
+        font-size: 36px;
+        font-weight: bold;
+        text-align: center;
+        color: #2c3e50;
+        margin: 20px 0;
+    }
+
+    .feedback {
+        margin-top: 25px;
+        padding: 20px;
+        background-color: #f9f9f9;
+        border-radius: 8px;
+    }
+
+    .success {
+        color: green;
+        font-weight: bold;
+    }
+
+    .warning {
+        color: red;
+        font-weight: bold;
+    }
+
+    table {
+        width: 100%;
+        border-collapse: collapse;
+        margin-top: 20px;
+    }
+
+    table, th, td {
+        border: 1px solid #ccc;
+    }
+
+    th, td {
+        padding: 10px;
+        text-align: center;
+    }
+
+    .counter {
+        font-weight: bold;
+        margin-top: 10px;
+    }
 </style>
 </head>
+
 <body>
 
 <div class="container">
 
-<hr>
+    <h1>INTERMEDIATE SPEAKING TASK</h1>
 
-<h2>Part A: Fill in the blanks</h2>
+    <h2>Topic: Healthy Lifestyle</h2>
 
-<p>1. Kelly lives in
-<input id="q1"></p>
+    <p><strong>Instructions:</strong> Prepare and deliver a <strong>2–3 minute oral presentation</strong> about a healthy lifestyle. You may use notes, but do not read your speech word for word.</p>
 
-<p>2. Kelly's mother's name is
-<input id="q2"></p>
+    <div class="box">
 
-<p>3. Kelly's father works in a
-<input id="q3"></p>
+        <h3>Speaking Task</h3>
 
-<p>4. Kelly's sister loves listening to
-<input id="q4"></p>
+        <p>
+            Imagine that your school is organizing a
+            <strong>Health Awareness Week</strong>.
+            You have been asked to give a short talk to your classmates
+            about the importance of maintaining a healthy lifestyle.
+        </p>
 
-<p>5. Brandy is a pet
-<input id="q5"></p>
+        <p>In your presentation, you should:</p>
 
-<button onclick="checkAnswers()">Check Answers</button>
+        <ol>
+            <li>Explain what a healthy lifestyle means.</li>
+            <li>Describe at least three healthy habits teenagers should practice.</li>
+            <li>Explain the benefits of these habits.</li>
+            <li>Mention one challenge teenagers face.</li>
+            <li>Suggest one practical solution.</li>
+        </ol>
 
-<p id="result"></p>
+    </div>
 
-<hr>
+    <h2>Guiding Questions</h2>
 
-<h2>Part B: Write About Your Family</h2>
+    <ul>
+        <li>What activities can help people stay healthy?</li>
+        <li>Why is regular exercise important?</li>
+        <li>How does a balanced diet affect our health?</li>
+        <li>What problems prevent teenagers from living healthily?</li>
+        <li>What advice would you give to your classmates?</li>
+    </ul>
 
-<p>Write 5–8 sentences about your family.</p>
+    <h2>Prepare Your Presentation Notes</h2>
 
-<textarea placeholder="My name is..."></textarea>
+    <textarea id="speech"
+    placeholder="Write your presentation notes here..."></textarea>
+
+    <div class="counter">
+        Word Count: <span id="wordCount">0</span>
+    </div>
+
+    <button onclick="checkPresentation()">
+        Check Presentation Content
+    </button>
+
+    <div class="feedback" id="feedback"></div>
+
+    <h2>Presentation Timer (3 Minutes)</h2>
+
+    <div class="timer" id="timer">03:00</div>
+
+    <button onclick="startTimer()">Start Timer</button>
+    <button onclick="resetTimer()">Reset Timer</button>
+
+    <h2>Presentation Requirements</h2>
+
+    <ul>
+        <li><strong>Time:</strong> 2–3 minutes</li>
+        <li><strong>Format:</strong> Individual presentation</li>
+        <li><strong>Preparation Time:</strong> 10–15 minutes</li>
+        <li><strong>Visual Aids:</strong> Optional</li>
+    </ul>
+
+    <h2>Assessment Criteria</h2>
+
+    <table>
+        <tr>
+            <th>Criteria</th>
+            <th>Excellent (4)</th>
+            <th>Good (3)</th>
+            <th>Fair (2)</th>
+            <th>Needs Improvement (1)</th>
+        </tr>
+
+        <tr>
+            <td>Fluency</td>
+            <td>Speaks smoothly with minimal pauses</td>
+            <td>Generally fluent</td>
+            <td>Frequent pauses</td>
+            <td>Difficult to understand</td>
+        </tr>
+
+        <tr>
+            <td>Vocabulary</td>
+            <td>Uses appropriate health vocabulary</td>
+            <td>Adequate vocabulary</td>
+            <td>Limited vocabulary</td>
+            <td>Very basic vocabulary</td>
+        </tr>
+
+        <tr>
+            <td>Grammar</td>
+            <td>Uses grammar accurately</td>
+            <td>Minor errors</td>
+            <td>Several errors</td>
+            <td>Errors interfere with meaning</td>
+        </tr>
+
+        <tr>
+            <td>Pronunciation</td>
+            <td>Clear and understandable</td>
+            <td>Mostly clear</td>
+            <td>Sometimes unclear</td>
+            <td>Difficult to understand</td>
+        </tr>
+
+        <tr>
+            <td>Content</td>
+            <td>Ideas are well-developed and relevant</td>
+            <td>Mostly relevant</td>
+            <td>Limited development</td>
+            <td>Incomplete ideas</td>
+        </tr>
+
+    </table>
 
 </div>
 
 <script>
-function checkAnswers(){
 
-let score = 0;
+const speech = document.getElementById("speech");
+const wordCount = document.getElementById("wordCount");
 
-const answers = {
-q1:"california",
-q2:"carmen",
-q3:"bank",
-q4:"music",
-q5:"dog"
-};
+speech.addEventListener("input", function() {
 
-for(let id in answers){
-let user = document.getElementById(id).value.trim().toLowerCase();
+    const words = speech.value
+        .trim()
+        .split(/\s+/)
+        .filter(word => word !== "");
 
-if(user === answers[id]){
-score++;
+    wordCount.textContent =
+        speech.value.trim() === "" ? 0 : words.length;
+});
+
+function checkPresentation() {
+
+    const text = speech.value.toLowerCase();
+
+    let feedback = "<h3>Presentation Checklist</h3><ul>";
+
+    const criteria = [
+
+        {
+            keywords: ["healthy lifestyle", "being healthy"],
+            message: "Definition of a healthy lifestyle"
+        },
+
+        {
+            keywords: ["exercise", "physical activity"],
+            message: "Healthy habit: exercise"
+        },
+
+        {
+            keywords: ["balanced diet", "healthy food", "nutrition"],
+            message: "Healthy habit: balanced diet"
+        },
+
+        {
+            keywords: ["sleep", "rest"],
+            message: "Healthy habit: enough sleep"
+        },
+
+        {
+            keywords: ["benefit", "improve", "help"],
+            message: "Benefits of healthy habits"
+        },
+
+        {
+            keywords: ["challenge", "problem", "difficulty"],
+            message: "Challenge faced by teenagers"
+        },
+
+        {
+            keywords: ["solution", "advice", "suggest"],
+            message: "Practical solution"
+        }
+
+    ];
+
+    criteria.forEach(item => {
+
+        const found = item.keywords.some(keyword =>
+            text.includes(keyword)
+        );
+
+        if (found) {
+
+            feedback +=
+            `<li class="success">
+            ✓ ${item.message} included.
+            </li>`;
+
+        } else {
+
+            feedback +=
+            `<li class="warning">
+            ✗ Add information about: ${item.message}.
+            </li>`;
+        }
+
+    });
+
+    feedback += "</ul>";
+
+    document.getElementById("feedback").innerHTML =
+        feedback;
 }
+
+/* TIMER */
+
+let totalSeconds = 180;
+let timer;
+
+function startTimer() {
+
+    clearInterval(timer);
+
+    timer = setInterval(function() {
+
+        let minutes = Math.floor(totalSeconds / 60);
+        let seconds = totalSeconds % 60;
+
+        document.getElementById("timer").textContent =
+            String(minutes).padStart(2, "0") +
+            ":" +
+            String(seconds).padStart(2, "0");
+
+        totalSeconds--;
+
+        if (totalSeconds < 0) {
+
+            clearInterval(timer);
+
+            document.getElementById("timer").textContent =
+                "Time's Up!";
+        }
+
+    }, 1000);
 }
 
-document.getElementById("result").innerHTML =
-"You got " + score + " out of 5 correct!";
+function resetTimer() {
+
+    clearInterval(timer);
+
+    totalSeconds = 180;
+
+    document.getElementById("timer").textContent =
+        "03:00";
 }
+
 </script>
 
 </body>
 </html>
+```
